@@ -1,0 +1,79 @@
+CREATE ROLE "praticaMVC" WITH
+	LOGIN
+	SUPERUSER
+	CREATEDB
+	CREATEROLE
+	INHERIT
+	NOREPLICATION
+	BYPASSRLS
+	CONNECTION LIMIT -1;
+
+CREATE DATABASE projeto_MVC
+    WITH
+    OWNER = "praticaMVC"
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE videos (
+    id SERIAL,
+    title VARCHAR(255),
+    url VARCHAR(255),
+    insertion_ts TIMESTAMP(0),
+    cancellation_ts TIMESTAMP(0),
+    CONSTRAINT videos_pk PRIMARY KEY (id)
+);
+
+// CREATE TABLE vagas (
+//     id SERIAL,
+//     id_cargos INT NOT NULL,
+//     titulo VARCHAR(100),
+//     descricao TEXT,
+//     modalidade VARCHAR(10) NOT NULL,
+//     CHECK (modalidade IN ('Presencial', 'Remoto', 'Hibrido')),
+//     ts_inclusao TIMESTAMP(0),
+//     ts_cancelamento TIMESTAMP(0),
+//     CONSTRAINT vagas_pk PRIMARY KEY (id),
+//     CONSTRAINT vagas_fk_cargos FOREIGN KEY (id_cargo) REFERENCES cargos(id)
+// );
+
+// CREATE TABLE pessoas (
+//     id SERIAL,
+//     nome VARCHAR(80) NOT NULL,
+//     idade INT, 
+//     genero VARCHAR(10),
+//     telefone VARCHAR(30) NOT NULL,
+//     CHECK (genero IN ('masculino','feminino', 'outros')),
+//     ts_inclusao TIMESTAMP(0),
+//     ts_cancelamento TIMESTAMP(0),
+//     CONSTRAINT pessoas_pk PRIMARY KEY (id)
+// );
+
+// CREATE TABLE usuarios (
+//     id SERIAL, 
+//     id_pessoas INT,
+//     tipo_usuarios VARCHAR(10),
+//     email VARCHAR(80) NOT NULL,
+//     senha VARCHAR(255) NOT NULL, 
+//     CHECK (tipo_usuario IN ('admin', 'candidato')),
+//     ts_inclusao TIMESTAMP(0),
+//     ts_cancelamento TIMESTAMP(0),
+//     CONSTRAINT usuario_pk PRIMARY KEY (id), 
+//     CONSTRAINT pessoas_email_unico UNIQUE (email),
+//     CONSTRAINT usuarios_fk_pessoas FOREIGN KEY (id_pessoa) REFERENCES pessoas(id)
+// );
+
+// CREATE TABLE inscricoes (
+//     id SERIAL,
+//     id_usuarios INT,
+//     id_vagas INT,
+//     data_inscricao TIMESTAMP(0),
+//     ts_cancelamento TIMESTAMP(0),
+//     CONSTRAINT inscricoes_pk PRIMARY KEY (id), 
+//     CONSTRAINT usuario_vaga_unicos UNIQUE (id_usuario, id_vaga),
+//     CONSTRAINT inscricoes_fk_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+//     CONSTRAINT inscricoes_fk_vagas FOREIGN KEY (id_vaga) REFERENCES vagas(id)
+// );

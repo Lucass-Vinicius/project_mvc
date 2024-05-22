@@ -1,0 +1,17 @@
+{
+    "name": "app/app",
+    "description": "Projeto para praticar o conceito de MVC",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        },"files": ["config.php"]
+    },
+    "authors": [
+        {
+            "name": "LucasV"
+        }
+    ],
+    "minimum-stability": "stable"
+}
