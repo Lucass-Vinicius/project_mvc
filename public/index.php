@@ -4,8 +4,8 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 //FRONT CONTROLLER
 
-use Src\Entity\Video;
-use Src\Controllers\Error404Controller;
+use Src\Video\models\Entity\Video;
+use Src\Video\Controllers\Error404Controller;
 
 $obVideo = new Video; 
 
@@ -22,4 +22,4 @@ if (array_key_exists($key, $routes)) {
 }
 $controller->processaRequisicao();
 
-// (array_key_exists($key, $routes)) ? $controllerClass = $routes["$httpMethod$requestURI"] && $controller = new $controllerClass($obVideo) : $controller = new Error404Controller();
+// (array_key_exists($key, $routes)) ? $controllerClass = $routes["$httpMethod$requestURI"] && $controller = new $controllerClass($obVideo) : $controller = new Error404Controller();l

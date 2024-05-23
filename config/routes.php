@@ -1,6 +1,6 @@
 <?php
 
-use Src\Controllers\{
+use Src\Video\Controllers\{
     VideoListController,
     EditVideoController,
     VideoFormController,
